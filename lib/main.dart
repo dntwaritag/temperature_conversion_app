@@ -82,123 +82,123 @@ class _TemperatureConverterHomePageState
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Radio<bool>(
-                              value: true,
-                              groupValue: _isFtoC,
-                              onChanged: (value) {
-                                setState(() {
-                                  _isFtoC = value!;
-                                });
-                              },
-                            ),
-                            Text(
-                              'Fahrenheit to Celsius',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ],
+                        Radio<bool>(
+                          value: true,
+                          groupValue: _isFtoC,
+                          onChanged: (value) {
+                            setState(() {
+                              _isFtoC = value!;
+                            });
+                          },
                         ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Radio<bool>(
-                              value: false,
-                              groupValue: _isFtoC,
-                              onChanged: (value) {
-                                setState(() {
-                                  _isFtoC = value!;
-                                });
-                              },
-                            ),
-                            Text(
-                              'Celsius to Fahrenheit',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ],
+                        Text(
+                          'Fahrenheit to Celsius',
+                          style: TextStyle(fontSize: 18),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: _controller,
-                      decoration: InputDecoration(
-                        labelText: 'Enter temperature',
-                        border: OutlineInputBorder(),
-                      ),
-                      keyboardType: TextInputType.number,
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  Text(
-                    '=',
-                    style: TextStyle(fontSize: 36),
-                  ),
-                  SizedBox(width: 20),
-                  Expanded(
-                    child: Container(
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Center(
-                        child: Text(
-                          _result,'b'
-                          style: TextStyle(fontSize: 36),
-                          textAlign: TextAlign.center,
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio<bool>(
+                          value: false,
+                          groupValue: _isFtoC,
+                          onChanged: (value) {
+                            setState(() {
+                              _isFtoC = value!;
+                            });
+                          },
                         ),
-                      ),
+                        Text(
+                          'Celsius to Fahrenheit',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _convert,
-                child: Text(
-                  'Convert',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-              SizedBox(height: 20),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: _history
-                        .map(
-                          (conversion) => Text(
-                        conversion,
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    )
-                        .toList(),
-                  ),
+                  ],
                 ),
               ),
             ],
           ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+          Expanded(
+          child: TextField(
+          controller: _controller,
+            decoration: InputDecoration(
+              labelText: 'Enter temperature',
+              border: OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.number,
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        SizedBox(width: 20),
+        Text(
+          '=',
+          style: TextStyle(fontSize: 36),
+        ),
+        SizedBox(width: 20),
+        Expanded(
+          child: Container(
+            padding:
+            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: Text(
+                  _result,'b'
+                  style: TextStyle(fontSize: 36),
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
       ),
+      ],
+    ),
+    SizedBox(height: 20),
+    ElevatedButton(
+    onPressed: _convert,
+    child: Text(
+    'Convert',
+    style: TextStyle(fontSize: 18),
+    ),
+    ),
+    SizedBox(height: 20),
+    Expanded(
+    child: SingleChildScrollView(
+    child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: _history
+        .map(
+    (conversion) => Text(
+    conversion,
+    style: TextStyle(fontSize: 18),
+    ),
+    )
+        .toList(),
+    ),
+    ),
+    ),
+    ],
+    ),
+    ),
+    ),
     );
   }
 }
