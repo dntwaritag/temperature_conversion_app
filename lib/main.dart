@@ -162,9 +162,9 @@ class _TemperatureConverterHomePageState
             ),
             child: Center(
               child: Text(
-                  _result,'b'
-                  style: TextStyle(fontSize: 36),
-              textAlign: TextAlign.center,
+                  _result, //Only one positional argument
+                  style: TextStyle(fontSize: 36), // Named argument
+              textAlign: TextAlign.center,      //Named argument
             ),
           ),
         ),
